@@ -128,8 +128,13 @@ class Ticket_Flow_Kham(Ticket_Flow):
         user_info = self.setting.user_info
         js_cmd = self.login_js.format(account=user_info.account, password=user_info.password, chk=res)
         logger.debug('login...')
+        
+        current_url = self.page.target.url 
         await self.page.evaluate(js_cmd)
-        logger.debug('login done')
+        if current_url != self.page.target.url:
+            logger.debug('login done')
+        else:
+            logger.error('login failed, please login manually.')
 
     async def get_ticket(self)->bool:
         logger.info('Start get ticket!!')
