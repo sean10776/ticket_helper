@@ -35,10 +35,7 @@ async def main():
             await asyncio.sleep(0.001)
         print('all task stopped.')
 
-    task = asyncio.create_task(on_press())
-    
-    while not ticket_helper.stop:
-        await ticket_helper.sleep()
+    task = asyncio.create_task(on_press(), name='hotkey_listener')
 
     while not browser.stopped:
         await browser.sleep()
