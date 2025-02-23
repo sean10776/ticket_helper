@@ -65,7 +65,7 @@ class Setting:
                 logger.warning(f'Empty setting file {self.setting_path}, set default')
                 return
 
-        with open(self.setting_path, 'r') as f:
+        with open(self.setting_path, 'r', encoding='utf-8') as f:
             setting = json.load(f)
             self.ticket_web = setting.get('ticket_web', TICKET_WEB.DEFAULT)
             self.auto_login = setting.get('auto_login', False)
