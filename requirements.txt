@@ -1,4 +1,4 @@
-nodriver
+nodriver @ git+https://github.com/sean10776/nodriver.git@feature/tab-cookies
 ddddocr
 keyboard
-pillow
+requests
